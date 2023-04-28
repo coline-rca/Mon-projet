@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Base {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset("css/base.css") }}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+
+    <!-- NAVBAR -->
+    <header>
+
+
+        <nav class="navbar fixed-top navbar-expand-md">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path("index") }}">
+              <img src="img/logo.png" alt="Logo" class="d-inline-block align-text">
+            </a>
+            <span class="navbar-text">Site</span>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+              aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+    
+              <ul class="navbar-nav text-center me-auto mb-2 mb-md-0">
+    
+    
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ path("index") }}">Accueil</a>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Plantes
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Toutes les catégories</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Baby plantes</a></li>
+                    <li><a class="dropdown-item" href="#">Moyennes plantes</a></li>
+                    <li><a class="dropdown-item" href="#">Grandes plantes</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sauvetage</a>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Jardinage
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Toutes les catégories</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Pots</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Outils</a></li>
+                    <li><a class="dropdown-item" href="#">Engrais</a></li>
+                    <li><a class="dropdown-item" href="#">Substrats</a></li>
+                  </ul>
+                </li>
+    
+    
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#about">A propos de nous</a>
+                </li>
+    
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+                </li>
+    
+              </ul>
+    
+              <ul class="navbar-nav text-center mb-2 mb-md-0">
+    
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-cart-shopping"></i>
+                    Panier</a>
+                </li>
+    
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ path("login") }}"><i class="fa-solid fa-user"></i> Se
+                    connecter</a>
+                </li>
+    
+              </ul>
+    
+            </div>
+          </div>
+        </nav>
+    
+    </header>
+    
+
+    <!-- MAIN -->
+    <main>
+        {% block body %} 
+
+        {% endblock %}
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <nav class="container-fluid">
+            <div class="row text-center">
+    
+                <ul class="col-md list-unstyled">
+    
+                    <li>
+                        <h5><a class="nav-link" href="#">Plantes</a></h5>
+                    </li>
+                    <li><a class="nav-link" href="#">Baby plantes</a></li>
+                    <li><a class="nav-link" href="#">Moyennes plantes</a></li>
+                    <li><a class="nav-link" href="#">Grandes plantes</a></li>
+                    <li><a class="nav-link" href="#">Sauvetage</a></li>
+    
+                </ul>
+    
+                <ul class="col-md list-unstyled">
+    
+                    <li>
+                        <h5><a class="nav-link" href="#">Jardinage</a></h5>
+                    </li>
+                    <li><a class="nav-link" href="#">Pots</a></li>
+                    <li><a class="nav-link" href="#">Outils</a></li>
+                    <li><a class="nav-link" href="#">Engrais</a></li>
+                    <li><a class="nav-link" href="#">Subtrats</a></li>
+    
+                </ul>
+    
+                <ul class="col-md list-unstyled">
+    
+                    <li>
+                        <h5>Réseaux Sociaux</h5>
+                    </li>
+                    <li><a class="nav-link" href="#">Instagram</a></li>
+                    <li><a class="nav-link" href="#">Twitter</a></li>
+                    <li><a class="nav-link" href="#">Youtube</a></li>
+                    <li><a class="nav-link" href="#">Facebook</a></li>
+    
+                </ul>
+    
+                <ul class="col-md list-unstyled">
+    
+                    <li>
+                        <h5 class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </h5>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">A propos de nous</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:mail@gmail.com">mail@gmail.com</a>
+                    </li>
+    
+                </ul>
+    
+                <ul class="col-md list-unstyled">
+    
+                    <li>
+                        <h5 class="nav-item">
+                            <a class="nav-link" href="#">Informations</a>
+                        </h5>
+                    </li>
+                    <li class="col nav-item"><a class="nav-link" href="">CGV</a></li>
+                    <li class="col nav-item"><a class="nav-link" href="">Mentions légales</a></li>
+                    <li class="col nav-item"><a class="nav-link" href="">Cookies</a></small></li>
+    
+                </ul>
+    
+            </div>
+    
+    
+    
+    
+            <small>Copyrights &copy; Mon site</small>
+    
+        </nav>
+    
+    
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+    {% block script %}{% endblock %}
+
+
+</body>
+</html>

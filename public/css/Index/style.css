@@ -1,0 +1,68 @@
+/* INDEX */
+
+main section#shop {
+    padding: 5em;
+    padding-top: 1em;
+}
+
+
+main section#items{
+    justify-content: center;
+}
+
+main section#items section.carte {
+    width: auto;
+    margin: 2rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+main section#items section.carte .img {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+main section#items section.carte .description{
+    margin: 1rem;
+    text-align: justify;
+}
+
+main section#items section.carte:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* INDEX A PROPOS */
+
+main section#about {
+    text-align: justify;
+    margin-bottom: 5rem;
+    padding: 1.5em;
+    /* background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),url("/img/background.jpg"); */
+    background-size: cover;
+}
+
+
+
+/* INDEX CONTACT */
+
+main section#contact {
+    font-size: 1rem;
+    width: 80vw;
+    padding: 1em;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+main section#contact a {
+    padding: .2em;
+}
+
+main section#contact div#contact-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
