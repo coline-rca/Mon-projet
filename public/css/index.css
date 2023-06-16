@@ -1,0 +1,84 @@
+/* MAIN */
+
+main {
+    margin-top: .5rem;
+}
+
+main div.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 4rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
+main div.items section:hover {
+    transform: scale(1.01);
+    transition: 0.5s;
+    box-shadow: 0px 5px 5px #e3e3e3;
+}
+
+/* main div.items img:hover {
+    transform: scale(1.01);
+    transition: 0.5s;
+} */
+
+main div.items section {
+    width: 22rem;
+    margin: .5rem;
+    border-radius: 5%;
+    padding-bottom: .6rem;
+    margin-bottom: 4rem;
+    
+}
+
+main div.items section div.image img {
+    width: 22rem;
+    border-top-left-radius:  5%;
+    border-top-right-radius: 5%;
+}
+
+main div.items section div.descriptif {
+    padding: .6rem;
+}
+
+main div.items section .descriptif div:nth-of-type(1)  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main div.items section .descriptif div:nth-of-type(2) {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+main div.items section .descriptif div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+main div.items section div.descriptif h3 {
+    margin: 0;
+}
+
+main div.items section div.descriptif h4 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+main div.items section div.descriptif button {
+    padding: 0.48rem;
+    margin: 0;
+    margin-top: .5rem;
+    font-size: 1rem;
+    color: whitesmoke;
+    background-color: #227f5e;
+    border: 2px solid #227f5e;
+    border-radius: 10px;
+    box-shadow: 0px 5px 2px #e3e3e3;
+
+}

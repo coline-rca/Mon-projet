@@ -9,18 +9,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
-    /**
-     * @Route("/", name="products")
-     */
+
+    #[Route('/products', name: 'products')]
     public function products(ManagerRegistry $doctrine)
     {
 
         $products = $doctrine->getRepository(Product::class)->findAll();
 
-        $this->render("Products/products.html.twig", [
+        $this->render("products/products.html.twig", [
             "products" => $products
         ]);
+    }
 
-        
+
+    #[Route('/item', name: 'item')]
+    public function item()
+    {
+
+        return $this->render("products/item.html.twig");
     }
 }

@@ -4,143 +4,168 @@
 Accueil
 {% endblock %}
 
-{% block css %}<link rel="stylesheet" href="{{ asset("css/Index/style.css") }}">{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ asset("css/index.css") }}">{% endblock %}
 
+{% block header %}
+        <div class="header">
+            <h1>Bienvenue sur MaPlante</h1>
+            <p>Pour une vie plus verte</p>
+        </div>
+{% endblock %}
 
 {% block body %}
 
 
-<h1>Bienvenue</h1>
-
-
 <!-- SHOP -->
+    <main>
+
+        <h2>Top des ventes</h2>
+
+        <div class="items">
+
+            <section>
+                <div class="image">
+                    <a href="{{ path("item") }}"><img src="img/monstera-delisiosa.jpg" alt="monstera delisiosa"></a>
+                    
+                </div>
+                <div class="descriptif">
+                    <div>
+                        <h3>Monstera Delisiosa</h3>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Araceae</small>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div>
+                        <h4>15 €</h4>
+                        <button>Ajouter au panier</button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="image">
+                    <a href=""><img src="img/monstera-delisiosa.jpg" alt="monstera delisiosa"></a>
+                    
+                </div>
+                <div class="descriptif">
+                    <div>
+                        <h3>Monstera Delisiosa</h3>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Araceae</small>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div>
+                        <h4>15 €</h4>
+                        <button>Ajouter au panier</button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="image">
+                    <a href=""><img src="img/monstera-delisiosa.jpg" alt="monstera delisiosa"></a>
+                    
+                </div>
+                <div class="descriptif">
+                    <div>
+                        <h3>Monstera Delisiosa</h3>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Araceae</small>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div>
+                        <h4>15 €</h4>
+                        <button>Ajouter au panier</button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="image">
+                    <a href=""><img src="img/monstera-delisiosa.jpg" alt="monstera delisiosa"></a>
+                    
+                </div>
+                <div class="descriptif">
+                    <div>
+                        <h3>Monstera Delisiosa</h3>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Araceae</small>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div>
+                        <h4>15 €</h4>
+                        <button>Ajouter au panier</button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="image">
+                    <a href=""><img src="img/monstera-delisiosa.jpg" alt="monstera delisiosa"></a>
+                    
+                </div>
+                <div class="descriptif">
+                    <div>
+                        <h3>Monstera Delisiosa</h3>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Araceae</small>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div>
+                        <h4>15 €</h4>
+                        <button>Ajouter au panier</button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="image">
+                    <a href=""><img src="img/monstera-delisiosa.jpg" alt="monstera delisiosa"></a>
+                    
+                </div>
+                <div class="descriptif">
+                    <div>
+                        <h3>Monstera Delisiosa</h3>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Araceae</small>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div>
+                        <h4>15 €</h4>
+                        <button>Ajouter au panier</button>
+                    </div>
+                </div>
+            </section>
 
 
-<section id="shop" class="container-fluid">
-
-  <section id="items" class="row">
-
-
-    <section class="carte col-4">
-
-      <div class="img">
-        <img src="https://picsum.photos/300"class="img-fluid" alt="">
-      </div>
-      <div class="description">
-        <p>nom produit</p>
-        <small>prix €</small>
-      </div>
-
-    </section>
-
-    <section class="carte col-4">
-
-      <div class="img">
-        <img src="https://picsum.photos/300" class="img-fluid" alt="">
-      </div>
-      <div class="description">
-        <p>nom produit</p>
-        <small>prix €</small>
-      </div>
-
-    </section>
-
-    <section class="carte col-4">
-
-      <div class="img">
-        <img src="https://picsum.photos/300"class="img-fluid" alt="">
-      </div>
-      <div class="description">
-        <p>nom produit</p>
-        <small>prix €</small>
-      </div>
-
-    </section>
-
-    <section class="carte col-4">
-
-      <div class="img">
-        <img src="https://picsum.photos/300" class="img-fluid" alt="">
-      </div>
-      <div class="description">
-        <p>nom produit</p>
-        <small>prix €</small>
-      </div>
-
-    </section>
-
-    <section class="carte col-4">
-
-      <div class="img">
-        <img src="https://picsum.photos/300" class="img-fluid" alt="">
-      </div>
-      <div class="description">
-        <p>nom produit</p>
-        <small>prix €</small>
-      </div>
-
-    </section>
-
-    <section class="carte col-4">
-
-      <div class="img">
-        <img src="https://picsum.photos/300" class="img-fluid" alt="">
-      </div>
-      <div class="description">
-        <p>nom produit</p>
-        <small>prix €</small>
-      </div>
-
-    </section>
-
-  </section>
 
 
 
-  </div>
-
-</section>
-
-
-<section id="about">
-
-  <h2>Qui somme-nous ?</h2>
-
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda commodi pariatur nostrum molestias. Quis nam sequi iste, quas at unde nisi perspiciatis eum expedita commodi odio tempora, sit quo deleniti error eaque dolorum totam suscipit amet laudantium facere nobis officia aspernatur. Laboriosam voluptatem porro ut id commodi iste deleniti delectus eum tempore, eveniet consequatur quisquam voluptate ducimus dolor sit beatae reprehenderit minima, at est ratione. Quos ratione in corrupti blanditiis laudantium placeat, similique dolorum excepturi quae quam iusto totam quod atque consequatur, nostrum assumenda id maxime. Quibusdam vel maxime animi modi odit, neque, illum amet recusandae sequi commodi numquam eum pariatur, mollitia cum temporibus repellat in placeat voluptatum? Sint, quisquam possimus? Tenetur nobis laboriosam eaque eos minima tempora ut officia nulla iure asperiores aliquam voluptatem recusandae temporibus, quia quas ea. Quidem corrupti debitis molestias saepe ex placeat aperiam modi veniam? Aliquid, illum. Ut sint facilis vel natus quae odit et!
-    </p>
-
-</section>
-
-<section id="contact" class="container">
-
-  <div class="row">
-
-    <div id="contact-icons" class="col-md-8">
-
-      <a href=""><i class="fa-solid fa-envelope"></i></a>
-      <a href=""><i class="fa-solid fa-phone"></i></a>
-      <a href=""><i class="fa-solid fa-location-dot"></i></a>
-
-    </div>
-
-    <div class="col-md-4">
-
-      <div id="social-media">
-        <div class="container">
-          <div class="row">
-            <a href="" class="col-3 col-md-6"><i class="fa-brands fa-instagram"></i></a>
-            <a href="" class="col-3 col-md-6"><i class="fa-brands fa-twitter"></i></a>
-            <a href="" class="col-3 col-md-6"><i class="fa-brands fa-youtube"></i></a>
-            <a href="" class="col-3 col-md-6"><i class="fa-brands fa-facebook"></i></a>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-
-
-</section>
+    </main>
 
 {% endblock %}

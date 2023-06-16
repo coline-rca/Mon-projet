@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset("css/product.css")}}">
+{% endblock %}
+
+{% block body %}
+
+        <main>
+
+        <section class="article">
+
+            <div class="image">
+
+                <!-- <div class="previsuel">
+                    <img src="img/monstera-delisiosa-s.jpg" alt="">
+                    <img src="img/monstera-delisiosa.jpg" alt="">
+                    <img src="img/monstera-delisiosa-xl.jpg" alt="">
+                </div> -->
+
+                <div class="visuel">
+                    <img src="img/monstera-delisiosa.jpg" alt="">
+                </div>
+            </div>
+
+
+            <div class="descriptif">
+
+                <div class="titre">
+                    <div>
+                        <h2>Monstera Délisiosa</h2>
+                        <i class="fa-regular fa-heart click"></i>
+                    </div>
+                    <small>Aracea</small>
+                </div>
+                <div class="description">
+                    <span class="prix">15 €</span>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestias ipsam, iste commodi consequatur provident qui fugiat porro labore voluptas illo eaque consequuntur esse harum asperiores quo laudantium sit obcaecati.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem laborum perspiciatis excepturi. 
+                    </p>
+                </div>
+                <div class="taille">
+                    <h4>Taille de la plante :</h4>
+                    <img src="img/baby.png" alt="" class="click">
+                    <img src="img/plante.png" alt="" class="click">
+                    <img src="img/big-plante.png" alt="" class="click">
+                </div>
+                <div class="stock">
+                    Disponibilité
+                </div>
+                <div class="ajouter">
+                    <button>Ajouter au panier</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+{% endblock %}

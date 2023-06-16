@@ -50,6 +50,12 @@ class Product
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $commentaire = null;
 
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    private ?Size $size = null;
+
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    private ?SubCategory $subCategory = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -195,6 +201,30 @@ class Product
     public function setCommentaire(?string $commentaire): self
     {
         $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    public function getSize(): ?Size
+    {
+        return $this->size;
+    }
+
+    public function setSize(?Size $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    public function getSubCategory(): ?SubCategory
+    {
+        return $this->subCategory;
+    }
+
+    public function setSubCategory(?SubCategory $subCategory): self
+    {
+        $this->subCategory = $subCategory;
 
         return $this;
     }
