@@ -19,11 +19,11 @@
             </ul>
             <ul class="liens">
                 <li><a href="{{path("index")}}">Home</a></li>
-                <li><a href="">Shop</a></li>
+                <li><a href="{{path("item")}}">Shop</a></li>
                 <li><a href="">About Us</a></li>
                 <li><a href="">Contact</a></li>
                 <li><a href="">Wishlist</a></li>
-                <li><i class="fa-solid fa-bag-shopping"></i></li>
+                <li><a href="{{path("cart")}}"><i class="fa-solid fa-bag-shopping"></i></a></li>
                 <li><a href="{{path("register")}}"><i class="fa-solid fa-user"></i></a></li>
             </ul>
             <ul class="burger">
@@ -31,6 +31,10 @@
             </ul>
         </nav>
         {% block header %}
+        <div>
+            <h1>MaPlante</h1>
+            <p>Pour une vie plus verte</p>
+        </div>
         {% endblock %}
     </header>
     
@@ -40,77 +44,65 @@
         {% block body %} 
 
         {% endblock %}
+        <div class="anchor">
+            <a href="#top"><img src="{{ asset("img/arrow.png")}}" alt=""></a>
+            
+        </div>
     </main>
 
 
     <!-- FOOTER -->
     <footer>
-        <nav>
+
+
+        <div class="footer-1">
+
+            <div class="logo">
+                <img src="img/logo.png" alt="LOGO">
+                <!-- <a href="">MaPlante</a> -->
+            </div>
+
+            <div>
+                <h5>BOUTIQUE</h5>
                 <ul>
-    
-                    <li>
-                        <h5><a href="#">Plantes</a></h5>
-                    </li>
-                    <li><a href="#">Baby plantes</a></li>
-                    <li><a href="#">Moyennes plantes</a></li>
-                    <li><a href="#">Grandes plantes</a></li>
-                    <li><a href="#">Sauvetage</a></li>
-    
-                </ul>
-    
-                <ul>
-    
-                    <li>
-                        <h5><a href="#">Jardinage</a></h5>
-                    </li>
+                    <li><a href="#">Plantes</a></li>
+                    <li><a href="#">Jardinage</a></li>
                     <li><a href="#">Pots</a></li>
-                    <li><a href="#">Outils</a></li>
-                    <li><a href="#">Engrais</a></li>
-                    <li><a href="#">Subtrats</a></li>
-    
                 </ul>
-                <ul>
+            </div>
+
+            <div>
+                    <h5>INFORMATIONS</h5>
+                    <ul>
+                        <li><a href="accueil.html#infos">Contact</a></li>
+                        <li><a href="#about">A propos de nous</a></li>
+                        <li><a href="mailto:mail@gmail.com">mail@gmail.com</a></li>
+                    </ul>
+            </div>
     
-                    <li>
-                        <h5><a href="#contact">Contact</a></h5>
-                    </li>
-                    <li>
-                        <a href="#about">A propos de nous</a>
-                    </li>
+            <div>
+                    <h5>RESEAUX SOCIAUX</h5>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Youtube</a></li>
+                        <li><a href="#">Facebook</a></li>
+        
+                    </ul>
+            </div>
+        </div>
     
-                    <li>
-                        <a href="mailto:mail@gmail.com">mail@gmail.com</a>
-                    </li>
-    
-                </ul>
-    
-                <ul>
-    
-                    <li>
-                        <h5>Réseaux Sociaux</h5>
-                    </li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Youtube</a></li>
-                    <li><a href="#">Facebook</a></li>
-    
-                </ul>
-    
-    
-                <ul>
-    
-                    <li>
-                        <h5><a href="#">Informations</a></h5>
-                    </li>
-                    <li><a href="">CGV</a></li>
-                    <li><a href="">Mentions légales</a></li>
-                    <li><a href="">Cookies</a></small></li>
-    
-                </ul>
-                
-            </nav>
-    
+        <div class="footer-2">
+            <ul>
+                <li><a href="">CGV</a></li>
+                <li><a href="">Mentions légales</a></li>
+                <li><a href="">Cookies</a></small></li>
+            </ul>
             <small>Copyrights &copy; Mon site</small>
+        </div>
+    
+                
+    
     </footer>
     
     <script src={{ asset("js/script.js")}}></script>

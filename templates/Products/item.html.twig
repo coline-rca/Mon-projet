@@ -1,61 +1,281 @@
 {% extends "base.html.twig" %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ asset("css/product.css")}}">
+    <link rel="stylesheet" href="{{ asset("css/item.css")}}">
+{% endblock %}
+
+{% block header %}
+        <div>
+            <h1>Nom du produit</h1>
+            <p>Catégorie</p>
+        </div>
 {% endblock %}
 
 {% block body %}
 
-        <main>
+        <section class="product">
 
-        <section class="article">
 
-            <div class="image">
+            <div class="images">
 
-                <!-- <div class="previsuel">
-                    <img src="img/monstera-delisiosa-s.jpg" alt="">
-                    <img src="img/monstera-delisiosa.jpg" alt="">
-                    <img src="img/monstera-delisiosa-xl.jpg" alt="">
-                </div> -->
-
-                <div class="visuel">
-                    <img src="img/monstera-delisiosa.jpg" alt="">
+                <div class="img-first">
+                    <img src="{{ asset("img/monstera-delisiosa.jpg")}}" alt="" class="img-p">
                 </div>
+
+                <div class="img-second">
+                    <div>
+                        <img src="{{ asset("img/monstera-delisiosa.jpg"  )}}" alt="" class="img">
+                    </div>
+
+                    <div>
+                        <img src="{{ asset("img/monstera-delisiosa-xl.jpg")}}" alt="" class="img">
+                    </div>
+
+                    <div>
+                        <img src="{{ asset("img/monstera-delisiosa-s.jpg")}}" alt="" class="img">
+                    </div>
+                </div>
+
             </div>
 
+            <div class="content">
 
-            <div class="descriptif">
-
-                <div class="titre">
+                <div>
                     <div>
-                        <h2>Monstera Délisiosa</h2>
+                        <h2>Nom du produit</h2>
                         <i class="fa-regular fa-heart click"></i>
                     </div>
-                    <small>Aracea</small>
+                    <div class="note">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <span>15 €</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente saepe nisi maxime commodi necessitatibus repellat? Fugit ipsa vitae, dignissimos repellendus quos et maxime molestiae, odio voluptatum officiis, esse doloribus illum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque officia recusandae ipsam cupiditate sint dignissimos perspiciatis asperiores ut repellat? Ratione sunt molestiae, fugiat officia consequatur quaerat deleniti libero ea?</p>
                 </div>
-                <div class="description">
-                    <span class="prix">15 €</span>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestias ipsam, iste commodi consequatur provident qui fugiat porro labore voluptas illo eaque consequuntur esse harum asperiores quo laudantium sit obcaecati.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem laborum perspiciatis excepturi. 
-                    </p>
+                
+                <div class="height">
+
+                    <h3>Taille :</h3>
+
+                    <div>
+                        <div class="tooltip">
+                            S
+                            <span class="tooltiptext">5cm</span>
+                        </div>
+                        <div class="tooltip">
+                            M
+                            <span class="tooltiptext">15cm</span>
+                        </div>
+                        <div class="tooltip">
+                            L
+                            <span class="tooltiptext">20cm</span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="taille">
-                    <h4>Taille de la plante :</h4>
-                    <img src="img/baby.png" alt="" class="click">
-                    <img src="img/plante.png" alt="" class="click">
-                    <img src="img/big-plante.png" alt="" class="click">
+                
+                <div class="height-mobile">
+
+                    <h3>Taille :</h3>
+
+                    <div>
+                        <div>
+                            S
+                            <span>5cm</span>
+                        </div>
+                        <div>
+                            M
+                            <span>10cm</span>
+                        </div>
+                        <div>
+                            L
+                            <span>20cm</span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="stock">
-                    Disponibilité
-                </div>
-                <div class="ajouter">
-                    <button>Ajouter au panier</button>
+
+                <div class="add">
+                    <a href="" class="btn" >Ajouter au panier</a>
                 </div>
 
             </div>
+
+ 
         </section>
-    </main>
+
+        <section class="comments">
+            
+            <h2>Votre avis compte</h2>
+
+            <div class="flex">
+                <div class="contents">
+    
+                    <div class="content">
+                        <div>
+                            <div class="note">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                                 - utilisateur
+                            </div>
+            
+                            <span>date</span>
+                        </div>
+        
+                        <p>Lorem ipsum dolor sit amet consectetur landitiis eveniet. Omnis commodi ad </p>
+        
+                    </div>
+                    <div class="content">
+                        <div>
+                            <div class="note">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                                - anonyme
+                            </div>
+            
+                            <span>date</span>
+                        </div>
+        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas impedit praesentium repellat, harum of reprehenderit corrupti sunt incidunt, eaque labore dicta molestiae voluptas.</p>
+        
+                    </div>
+                    <div class="content">
+                        <div>
+                            <div class="note">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                                - utilisateur
+                            </div>
+            
+                            <span>date</span>
+                        </div>
+        
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas impedit praesentium repellat, harum officiis libero reprehenderit. Ex, iste consectetur omnis ad voluptatem blanditiis eveniet. Omnis commodi ad voluptate officia totam, provident iusto reprehenderit corrupti sunt incidunt, eaque labore dicta molestiae voluptas.</p>
+        
+                    </div>
+                </div>
+    
+                <div class="form">
+                    <h3>Donnez-nous votre avis :</h3>
+                    <form>
+                        <div>
+                            <textarea name="comment" id="comment" cols="45" rows="10" placeholder="Votre commentaire..."></textarea>
+                            <div>
+                                <label for="user">Restez anonyme ?</label>
+                                <input type="checkbox" name="user" id="user">
+                            </div>
+                        </div>
+                        
+                        <div class="submit">
+                            <a href="" type="submit" class="btn">Envoyer</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <section class="others">
+
+            <h2>Voir aussi...</h2>
+
+            <div class="items">
+                <div class="item">
+                    <div class="image">
+                        <a href=""><img src="{{ asset("img/monstera-delisiosa.jpg")}}" alt="monstera delisiosa"></a>
+                        
+                    </div>
+                    <div class="descriptif">
+                        <div>
+                            <h3>Monstera Delisiosa</h3>
+                            <i class="fa-regular fa-heart click"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div>
+                            <span>15 €</span>
+                            <a href="" class="btn">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image">
+                        <a href=""><img src="{{ asset("img/monstera-delisiosa.jpg")}}" alt="monstera delisiosa"></a>
+                        
+                    </div>
+                    <div class="descriptif">
+                        <div>
+                            <h3>Monstera Delisiosa</h3>
+                            <i class="fa-regular fa-heart click"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div>
+                            <span>15 €</span>
+                            <a href="" class="btn">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image">
+                        <a href=""><img src="{{ asset("img/monstera-delisiosa.jpg")}}" alt="monstera delisiosa"></a>
+                        
+                    </div>
+                    <div class="descriptif">
+                        <div>
+                            <h3>Monstera Delisiosa</h3>
+                            <i class="fa-regular fa-heart click"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div>
+                            <span>15 €</span>
+                            <a href="" class="btn">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image">
+                        <a href=""><img src="{{ asset("img/monstera-delisiosa.jpg")}}" alt="monstera delisiosa"></a>
+                        
+                    </div>
+                    <div class="descriptif">
+                        <div>
+                            <h3>Monstera Delisiosa</h3>
+                            <i class="fa-regular fa-heart click"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div>
+                            <span>15 €</span>
+                            <a href="" class="btn">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
 
 
 {% endblock %}
+
+ 
+{% block script %}<script src={{ asset("js/item.js")}}></script>{% endblock %}

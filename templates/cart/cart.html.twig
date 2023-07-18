@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Panier
+{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{{ asset("css/cart.css") }}">{% endblock %}
+
+{% block header %}
+
+    <div>
+        <h1>Panier</h1>
+        <p>Nombre d'article</p>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+
+<section class="cart">
+
+            <div class="cart">                
+               <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Produit</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><img src="img/monstera-delisiosa.jpg" alt=""></th>
+                        <td>produit1</td>
+                        <td>4€</td>
+                        <td>3</td>
+                        <td>12€</td>
+                        <td><a href="" class="btn">Bouton</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="img/logo.png" alt=""></th>
+                        <td>produit2</td>
+                        <td>6,99€</td>
+                        <td>1</td>
+                        <td>6,99€</td>
+                        <td><a href="" class="btn">Bouton</a></td>
+                    </tr>
+                    <tfoot>
+                        <tr>
+                            <th scope="row"></th>
+                            <td colspan="4">18,99€</td>
+                            <td><a href="" class="btn"><i class="fa-regular fa-credit-card"></i>  Payer</a></td>
+                        </tr>
+                    </tfoot>
+                </tbody>
+            </table> 
+            </div>
+        </section>
+
+{% endblock %}

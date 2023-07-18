@@ -1,0 +1,62 @@
+@media screen and (min-width: 769px) {
+
+    header {
+        background-position: bottom;
+        padding-bottom: 100px;
+        padding-top: 150px;
+    }
+    
+    header div {
+        text-align: center;
+        padding-top: 0;
+    }
+}
+
+.btn {
+    padding: .6rem 1.5rem;
+    font-size: 1.2rem;
+}
+
+section.cart i {
+    color: whitesmoke;
+}
+
+section.cart img {
+    width: 150px;
+    height: 150px;
+}
+
+section.cart {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+section.cart table {
+    font-size: 1.5rem;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+section.cart table thead {
+    background-color: var(--second-color);
+    
+}
+
+section.cart table thead th {
+    color: whitesmoke;
+}
+
+section.cart td,
+section.cart th {
+    padding: 5px 50px;
+    
+}
+
+section.cart table tfoot td {
+    text-align: end;
+}
+
