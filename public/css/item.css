@@ -14,6 +14,21 @@
 
 /* MAIN */
 
+/* ADMIN BUTTON */
+
+section.admin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ section.admin div {
+    text-align: center;
+}
+
+section.admin a {
+    display: inline;
+}
+
 /* PRODUIT IMAGES */
 
 section.product {
@@ -25,6 +40,7 @@ section.product img {
     width: 320px;
     max-height: 530px;
     cursor:pointer;
+
 }
 
 section.product .images {
@@ -83,6 +99,12 @@ section.product .img-second img {
 
 }
 
+/* IMAGES DANS LA LISTE  */
+
+section.shop .items img {
+    height: 300px;
+}
+
 section.product .content h2 {
     color: var(--main-color);
     font-size: 1.6rem;
@@ -97,7 +119,7 @@ section.product .content {
     background-size: cover;
 }
 
-section.product .content div div:first-of-type {
+section.product .content div .top {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -202,7 +224,7 @@ section.product .content .height-mobile {
 
 section.product .content .height-mobile div {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -350,6 +372,10 @@ main div.items div.item {
     margin-bottom: 4rem;
     background-color: whitesmoke;
     
+}
+
+main section.shop div.items div.item div.image {
+    height: 312px;
 }
 
 main div.items div.item div.image img {

@@ -26,13 +26,25 @@ section.cart img {
     height: 150px;
 }
 
+section.cart a {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+section.cart .btn:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
 section.cart {
     display: flex;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 section.cart table {

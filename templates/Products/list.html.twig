@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset("css/item.css")}}">
+{% endblock %}
+
+{% block header %}
+        <div>
+            <h1>Tous les produits</h1>
+            <p>Liste</p>
+        </div>
+{% endblock %}
+
+{% block body %}
+
+<section class="shop">
+            
+            <div class="items">
+            {% for product in products %}
+                <div class="item">
+                    <div class="image">
+                        <a href="{{ path("item", {id: product.id})}}"><img src="{{ vich_uploader_asset(product, 'imageFile1') }}" alt="{{ product.name }}"></a>
+                        
+                    </div>
+                    <div class="descriptif">
+                        <div>
+                            <h3>{{ product.name }}</h3>
+                            <i class="fa-regular fa-heart click"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div>
+                            <span>{{ product.price }} €</span>
+                            {% if product.stock > 0 %}
+                                <a href="{{ path("cart_add", {id: product.id})}}" class="btn" >Ajouter au panier</a>
+                            {% else %}
+                                <p class="btn-disabled" >Rupture de stock</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+            </div>
+
+
+
+        </section>
+
+{% endblock %}

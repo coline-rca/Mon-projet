@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset("css/userForm.css")}}">
+{% endblock %}
+
+{% block title %}Espace utilisateur{% endblock %}
+
+{% block header %}
+        <div>
+            <h1>Formulaire</h1>
+            <p>Modifier votre profil</p>
+        </div>
+{% endblock %}
+
+{% block body %}
+
+<section class="update">
+    {{ form_start(formUser) }}
+        <div class="form">
+
+            <div class="name">
+                    {{ form_row(formUser.firstName, {
+                        label: 'Prénom : '
+                    }) }}
+                    {{ form_row(formUser.lastName, {
+                        label: 'Nom : '
+                    }) }}
+                </div>
+                <div class="personal">
+                    {{ form_row(formUser.email, {
+                        label: 'Email : '
+                    }) }}
+                    {{ form_row(formUser.phone, {
+                        label: 'Téléphone : '
+                    }) }}
+                </div>
+
+                <div class="input">
+                    <input type="submit" value="Enregistrer" class="btn" onclick="return confirm('Êtes-vous sûr de vouloir modifier votre profil ?')"/>
+                </div>
+
+        </div>
+    {{ form_end(formUser) }}
+</section>
+
+
+
+{% endblock %}

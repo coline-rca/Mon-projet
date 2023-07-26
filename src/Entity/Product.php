@@ -2,11 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductRepository;
+use App\Entity\Category;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[Vich\Uploadable]
 class Product
 {
     #[ORM\Id]
@@ -26,35 +32,59 @@ class Product
     #[ORM\Column(nullable: true)]
     private ?int $stock = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $img = null;
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'imageName1')]
+    private ?File $imageFile1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $alt = null;
+    #[ORM\Column(nullable: true)]
+    private ?string $imageName1 = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $img2 = null;
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt1 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $alt2 = null;
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'imageName2')]
+    private ?File $imageFile2 = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $img3 = null;
+    #[ORM\Column(nullable: true)]
+    private ?string $imageName2 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $alt3 = null;
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt2 = null;
+
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'imageName3')]
+    private ?File $imageFile3 = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $imageName3 = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt3 = null;
 
     #[ORM\Column(nullable: true)]
     private ?float $note = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $commentaire = null;
+    private ?string $comment = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Size $size = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?SubCategory $subCategory = null;
+    private ?Category $category = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    #[ORM\ManyToMany(targetEntity: Order::class, mappedBy: 'product')]
+    private Collection $orders;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -109,76 +139,76 @@ class Product
         return $this;
     }
 
-    public function getImg(): ?string
+    public function setImageFile1(?File $imageFile1 = null): void
     {
-        return $this->img;
+        $this->imageFile1 = $imageFile1;
+
+        if (null !== $imageFile1) {
+            $this->updatedAt1 = new \DateTimeImmutable();
+        }
     }
 
-    public function setImg(?string $img): self
+    public function getImageFile1(): ?File
     {
-        $this->img = $img;
-
-        return $this;
+        return $this->imageFile1;
     }
 
-    public function getAlt(): ?string
+    public function setImageName1(?string $imageName1): void
     {
-        return $this->alt;
+        $this->imageName1 = $imageName1;
     }
 
-    public function setAlt(?string $alt): self
+    public function getImageName1(): ?string
     {
-        $this->alt = $alt;
-
-        return $this;
+        return $this->imageName1;
     }
 
-    public function getImg2(): ?string
+    public function setImageFile2(?File $imageFile2 = null): void
     {
-        return $this->img2;
+        $this->imageFile2 = $imageFile2;
+
+        if (null !== $imageFile2) {
+            $this->updatedAt2 = new \DateTimeImmutable();
+        }
     }
 
-    public function setImg2(?string $img2): self
+    public function getImageFile2(): ?File
     {
-        $this->img2 = $img2;
-
-        return $this;
+        return $this->imageFile2;
     }
 
-    public function getAlt2(): ?string
+    public function setImageName2(?string $imageName2): void
     {
-        return $this->alt2;
+        $this->imageName2 = $imageName2;
     }
 
-    public function setAlt2(?string $alt2): self
+    public function getImageName2(): ?string
     {
-        $this->alt2 = $alt2;
-
-        return $this;
+        return $this->imageName2;
     }
 
-    public function getImg3(): ?string
+    public function setImageFile3(?File $imageFile3 = null): void
     {
-        return $this->img3;
+        $this->imageFile3 = $imageFile3;
+
+        if (null !== $imageFile3) {
+            $this->updatedAt3 = new \DateTimeImmutable();
+        }
     }
 
-    public function setImg3(?string $img3): self
+    public function getImageFile3(): ?File
     {
-        $this->img3 = $img3;
-
-        return $this;
+        return $this->imageFile3;
     }
 
-    public function getAlt3(): ?string
+    public function setImageName3(?string $imageName3): void
     {
-        return $this->alt3;
+        $this->imageName3 = $imageName3;
     }
 
-    public function setAlt3(?string $alt3): self
+    public function getImageName3(): ?string
     {
-        $this->alt3 = $alt3;
-
-        return $this;
+        return $this->imageName3;
     }
 
     public function getNote(): ?float
@@ -193,14 +223,14 @@ class Product
         return $this;
     }
 
-    public function getCommentaire(): ?string
+    public function getComment(): ?string
     {
-        return $this->commentaire;
+        return $this->comment;
     }
 
-    public function setCommentaire(?string $commentaire): self
+    public function setComment(?string $comment): self
     {
-        $this->commentaire = $commentaire;
+        $this->comment = $comment;
 
         return $this;
     }
@@ -217,14 +247,65 @@ class Product
         return $this;
     }
 
-    public function getSubCategory(): ?SubCategory
+    public function getCategory(): ?Category
     {
-        return $this->subCategory;
+        return $this->category;
     }
 
-    public function setSubCategory(?SubCategory $subCategory): self
+    public function setCategory(?Category $category): static
     {
-        $this->subCategory = $subCategory;
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): static
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): static
+    {
+        if ($this->orders->removeElement($order)) {
+            $order->removeProduct($this);
+        }
 
         return $this;
     }

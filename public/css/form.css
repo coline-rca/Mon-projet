@@ -1,0 +1,120 @@
+@media screen and (min-width: 769px) {
+
+    header {
+        background-position: bottom;
+        padding-bottom: 100px;
+        padding-top: 150px;
+    }
+    
+    header div {
+        text-align: center;
+        padding-top: 0;
+    }
+}
+
+textarea {
+    height: 100px;
+}
+
+section.form {
+    /* background-image: url("../img/fond.png"); */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url("../img/fond.png");
+    /* background-blend-mode: luminosity; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+
+section.form .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+section.form .description, section.form .images {
+    width: 100%;
+}
+
+section.form .description div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+section.form .images div {
+    margin-bottom: .5rem;
+}
+
+section.form .images .vich-image img{
+    width: 100px;
+}
+
+section.form label {
+    color: var(--main-color);
+}
+
+section.form, section.form input:not([type=submit]), section.form textarea, section.form select {
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+section.form input[type=file]{
+
+    font-size: 1.1rem;
+    
+
+}
+
+section.form input:not([type=file], [type=submit] ), section.form textarea, section.form select {
+    border: 1px solid var(--main-color);
+
+}
+
+section.form .input:not([type=submit]) {
+    text-align: center;
+    margin-top: 2rem;
+    
+}
+
+section.form .input input {
+
+    color: whitesmoke;
+    border: 1px solid var(--second-color);
+    font-size: 1.2rem;
+}
+
+section.form .input {
+    display: flex;
+    justify-content: center;
+}
+
+section.form .input input:hover {
+    cursor: pointer;
+} 
+
+@media screen and (min-width: 768px) {
+    
+    section.form .form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    section.form .description, section.form .images {
+        width: 40%;
+    }
+    
+    
+    
+    section.form .images label {
+        margin-bottom: 1rem;
+    }
+    
+   
+    
+}

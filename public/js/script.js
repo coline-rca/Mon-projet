@@ -4,15 +4,14 @@ let burger = document.querySelector('ul.burger');
 let liens = document.querySelector('ul.liens');
 let nav = document.querySelector("nav");
 
-// Sitaille de l'écran quand on arrive sur le site est <768px, le menu burger est fermer, sinon sinon on le supprime
+// Si la taille de l'écran quand on arrive sur le site est <768px, le menu burger est fermer, sinon sinon on le supprime
 if(window.matchMedia("(max-width:768px)").matches) {
-        liens.classList.add('close');
-        
+    liens.classList.add('close');  
 } else {
     burger.remove();
 }
 
-// Si on ajuste l'écran après être arriver sur le site, le menu burger est créé si l'écran est >768px sinon il est supprimer
+// Si on ajuste l'écran après être arriver sur le site, le menu burger est créé si l'écran est <768px sinon il est supprimer
 window.addEventListener("resize", function(){
     if(window.matchMedia("(max-width:768px)").matches) {
         liens.classList.add('close');

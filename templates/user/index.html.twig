@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset("css/user.css")}}">
+{% endblock %}
+
+{% block title %}Compte{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+
+<section class="actions">
+    <div>
+        {% if is_granted('ROLE_ADMIN') %}
+                <div><a href="{{ path("admin_product_new") }}" class="btn">Ajouter un produit</a></div>
+        {% endif %}
+        <div><a href="{{ path("user_update", {id: app.user.id} )}}" class="btn">Modifier ses informations</a></div>
+        <div><a href="" class="btn">Mes commandes</a></div>
+        <div><a href="{{ path("logout") }}" class="btn btn-red">Se déconnecter</a>
+    </div>
+</section>
+{% endblock %}

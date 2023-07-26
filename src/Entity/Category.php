@@ -18,12 +18,12 @@ class Category
     #[ORM\Column(length: 45)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: SubCategory::class)]
-    private Collection $subCategories;
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
+    private Collection $products;
 
     public function __construct()
     {
-        $this->subCategories = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,32 +44,33 @@ class Category
     }
 
     /**
-     * @return Collection<int, SubCategory>
+     * @return Collection<int, Product>
      */
-    public function getSubCategories(): Collection
+    public function getProducts(): Collection
     {
-        return $this->subCategories;
+        return $this->products;
     }
 
-    public function addSubCategory(SubCategory $subCategory): self
+    public function addProduct(Product $product): static
     {
-        if (!$this->subCategories->contains($subCategory)) {
-            $this->subCategories->add($subCategory);
-            $subCategory->setCategory($this);
+        if (!$this->products->contains($product)) {
+            $this->products->add($product);
+            $product->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeSubCategory(SubCategory $subCategory): self
+    public function removeProduct(Product $product): static
     {
-        if ($this->subCategories->removeElement($subCategory)) {
+        if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($subCategory->getCategory() === $this) {
-                $subCategory->setCategory(null);
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
             }
         }
 
         return $this;
     }
+
 }

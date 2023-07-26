@@ -1,0 +1,107 @@
+    header {
+        background-image: none;
+        padding-bottom: 0;
+        margin-top: 6rem;
+    }
+
+    header div {
+        padding-top: 0;
+    }
+
+
+@media screen and (min-width: 769px) {
+
+    header {
+        background-image: none;
+        padding-bottom: 0;
+        margin-top: 6rem;
+    }
+
+    header div {
+        padding-top: 0;
+    }
+
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+input:not([type=submit]) {
+    height: 1.5rem;
+    border: 1px solid var(--main-color);
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+label {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.input {
+    text-align: center;
+}
+input.btn {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+input.btn:hover {
+    cursor: pointer;
+}
+
+.update {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+
+.name div, .personal div, .email div, .phone div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name label, .personal label, .email div, .phone label {
+    margin-bottom: .5rem;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+
+    .form {
+        background-image: url("../img/fond.png");
+        background-blend-mode: lighten;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 20px;
+        box-shadow: 10px 5px 5px rgba(201, 201, 201, 0.492);
+    }
+
+    .update {
+        width: 600px;
+    }
+
+    .email input{
+        width: 85%;
+    }
+
+    .name, .personal {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+    }
+}

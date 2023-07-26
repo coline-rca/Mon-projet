@@ -1,0 +1,93 @@
+@media screen and (min-width: 769px) {
+
+    header {
+        background-image: none;
+        padding-bottom: 0;
+        margin-top: 7rem;
+    }
+
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+input:not([type=submit]) {
+    height: 1.5rem;
+    border: 1px solid var(--main-color);
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+label {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.input {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.input input {
+    display: inline;
+}
+
+input.btn:not([type=submit]) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+input.btn:hover {
+    cursor: pointer;
+}
+
+.contact {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form {
+    background-image: url("../img/fond.png");
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px rgba(201, 201, 201, 0.492);
+}
+
+.top div, .message div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message {
+    margin-top: .5rem;
+}
+
+textarea {
+    width: 80%;
+    height: 150px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .top {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .contact {
+        width: 600px;
+    }
+
+}
+
+
+

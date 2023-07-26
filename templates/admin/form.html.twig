@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}<link rel="stylesheet" href="{{ asset("css/form.css") }}">
+  </head>{% endblock %}
+
+{% block title %}Espace Admin{% endblock %}
+
+{% block header %}
+        <div>
+            <h1>Formulaire</h1>
+            {% if app.request.attributes.get("_route") == "admin_product_new" %}
+                <p>Ajouter un produit</p>
+            {% else %}
+                <p>Modifier l'article</p>
+            {% endif %}
+        </div>
+{% endblock %}
+
+{% block body %}
+
+<section class="form">
+    {{ form_start(formProduct) }}
+
+        <div class="form">
+
+            <div class="description">
+                {{ form_row(formProduct.name, {label: "Nom du produit"}) }}
+                {{ form_row(formProduct.description) }}
+                {{ form_row(formProduct.price, {label: "Prix"}) }}
+                {{ form_row(formProduct.stock) }}
+                {{ form_row(formProduct.category, {label: "Catégorie du produit"}) }}
+                {{ form_row(formProduct.size, {label: "Taille du produit"}) }}
+            </div>
+
+            <div class="images">
+                <div class="image">
+                    {{ form_row(formProduct.imageFile1, {label: "Image 1"}) }}
+                </div>
+                <div class="image">
+                    {{ form_row(formProduct.imageFile2, {label: "Image 2"}) }}
+                </div>
+                <div class="image">
+                    {{ form_row(formProduct.imageFile3, {label: "Image 3"}) }}
+                </div>
+            </div>
+        </div>
+        <div class="input">
+            {% if app.request.attributes.get("_route") == "admin_product_update" %}
+                <input type="submit" value="Enregistrer" class="btn" onclick="return confirm('Êtes-vous sûr de vouloir modifier cet article ?')"/>
+            {% else %}
+                <input type="submit" value="Enregistrer" class="btn"/>
+            {% endif %}
+        </div>
+
+       
+    {{ form_end(formProduct) }}
+</section>
+
+
+
+{% endblock %}

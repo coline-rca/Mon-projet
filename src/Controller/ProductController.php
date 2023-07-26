@@ -14,18 +14,23 @@ class ProductController extends AbstractController
     public function products(ManagerRegistry $doctrine)
     {
 
+        // $this->denyAccessUnlessGranted('ROLE_USER');
         $products = $doctrine->getRepository(Product::class)->findAll();
 
-        $this->render("products/products.html.twig", [
+        return $this->render("products/list.html.twig", [
             "products" => $products
         ]);
     }
 
 
-    #[Route('/item', name: 'item')]
-    public function item()
+    #[Route('/item/{id}', name: 'item')]
+    public function item(ManagerRegistry $doctrine, $id)
     {
 
-        return $this->render("products/item.html.twig");
+        $item = $doctrine->getRepository(Product::class)->find($id);
+
+        return $this->render("products/item.html.twig", [
+            "item" => $item
+        ]);
     }
 }

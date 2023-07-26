@@ -18,13 +18,34 @@
                 <li><a href="{{path("index")}}">MaPlante</a></li>
             </ul>
             <ul class="liens">
-                <li><a href="{{path("index")}}">Home</a></li>
-                <li><a href="{{path("item")}}">Shop</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="{{path("index")}}">Accueil</a></li>
+                <li><a href="{{path("products")}}">Boutique</a></li>
+                <li><a href="">A propos</a></li>
+                <li><a href="{{ path("contact") }}">Contact</a></li>
                 <li><a href="">Wishlist</a></li>
-                <li><a href="{{path("cart")}}"><i class="fa-solid fa-bag-shopping"></i></a></li>
-                <li><a href="{{path("register")}}"><i class="fa-solid fa-user"></i></a></li>
+                <li class="position">
+                    <a href="{{path("cart")}}">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                    {% if app.user %}
+                        <span class="badge">
+
+                            {% set cart = app.session.get('cart') %}
+                            {% set qttyCart = 0 %}
+                            {% for article in cart %}
+                                {% set qttyCart = qttyCart +  article %}
+                            {% endfor %}
+                            {{ qttyCart }}
+
+                        </span>
+                    {% endif %}
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path("user") }}" class=""><i class="fa-solid fa-user"></i></a></li> 
+                {% else %}
+                    <li><a href="{{path("login")}}"><i class="fa-solid fa-user"></i></a></li> 
+                {% endif %}
+                
             </ul>
             <ul class="burger">
                 <li><i class="fa-solid fa-bars"></i></li>
@@ -58,8 +79,8 @@
         <div class="footer-1">
 
             <div class="logo">
-                <img src="img/logo.png" alt="LOGO">
-                <!-- <a href="">MaPlante</a> -->
+                {# <img src="img/logo.png" alt="LOGO"> #}
+                <a href="">MaPlante</a>
             </div>
 
             <div>
@@ -74,8 +95,8 @@
             <div>
                     <h5>INFORMATIONS</h5>
                     <ul>
-                        <li><a href="accueil.html#infos">Contact</a></li>
-                        <li><a href="#about">A propos de nous</a></li>
+                        <li><a href="{{ path('contact') }}">Contact</a></li>
+                        <li><a href="{{ path('index') }}#about">A propos de nous</a></li>
                         <li><a href="mailto:mail@gmail.com">mail@gmail.com</a></li>
                     </ul>
             </div>
@@ -94,8 +115,9 @@
     
         <div class="footer-2">
             <ul>
-                <li><a href="">CGV</a></li>
+                <li><a href="">Conditions générales de ventes</a></li>
                 <li><a href="">Mentions légales</a></li>
+                <li><a href="">Politique de confidentialité</a></li>
                 <li><a href="">Cookies</a></small></li>
             </ul>
             <small>Copyrights &copy; Mon site</small>

@@ -44,10 +44,14 @@ main section.intro .presentation {
 }
 
 main section.shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: url("../img/fond3.png");
     background-blend-mode: lighten;
     background-repeat:no-repeat;
     background-position: center;
+    margin-bottom: 3rem;
 }
 
 
@@ -81,7 +85,13 @@ main section.shop div.items div.item {
     
 }
 
+main section.shop div.items div.item div.image {
+    height: 400px;
+}
+
 main section.shop div.items div.item div.image img {
+    /* max-height: 400px; */
+    height: 100%;
     width: 100%;
     border-top-left-radius:  5%;
     border-top-right-radius: 5%;
@@ -132,6 +142,8 @@ main section.shop div.items div.item div.descriptif span {
     
     main section.shop {
         padding: 4rem;
+        padding-top: 0;
+        margin-bottom: 0;
     }
 
     main section.shop div.items div.item {
@@ -140,6 +152,10 @@ main section.shop div.items div.item div.descriptif span {
 
     main section.shop div.items div.item div.descriptif {
         background-image: none;
+    }
+
+    main section.shop .btn-list {
+        margin-top: 2rem;
     }
     
 

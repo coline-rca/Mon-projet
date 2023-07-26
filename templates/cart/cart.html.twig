@@ -10,7 +10,9 @@ Panier
 
     <div>
         <h1>Panier</h1>
-        <p>Nombre d'article</p>
+        {% if items is empty %}
+            <p>Aucun article dans votre panier</p>
+        {% endif %}
     </div>
 
 {% endblock %}
@@ -19,7 +21,11 @@ Panier
 
 <section class="cart">
 
-            <div class="cart">                
+        {% if items is empty %}
+            <p>Votre panier est vide</p>
+        {% else %}
+
+        <div class="cart">                
                <table>
                 <thead>
                     <tr>
@@ -32,32 +38,35 @@ Panier
                     </tr>
                 </thead>
                 <tbody>
+                    {% for item in items %}
                     <tr>
-                        <th scope="row"><img src="img/monstera-delisiosa.jpg" alt=""></th>
-                        <td>produit1</td>
-                        <td>4€</td>
-                        <td>3</td>
-                        <td>12€</td>
-                        <td><a href="" class="btn">Bouton</a></td>
+                        <th scope="row"><a href="{{ path('item', {id: item.product.id})}}"><img src="{{ vich_uploader_asset(item.product, 'imageFile1') }}" alt=""></a></th>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.product.price }} €</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.product.price * item.quantity }} €</td>
+                        <td>
+                            <a href="{{ path("cart_add", {id: item.product.id})}}" class="btn">+1</a>
+                            <a href="{{path('cart_remove', {id: item.product.id})}}" class="btn">-1</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row"><img src="img/logo.png" alt=""></th>
-                        <td>produit2</td>
-                        <td>6,99€</td>
-                        <td>1</td>
-                        <td>6,99€</td>
-                        <td><a href="" class="btn">Bouton</a></td>
-                    </tr>
+                    {% endfor %}
+                </tbody>
+                
                     <tfoot>
                         <tr>
                             <th scope="row"></th>
-                            <td colspan="4">18,99€</td>
-                            <td><a href="" class="btn"><i class="fa-regular fa-credit-card"></i>  Payer</a></td>
+                                <td colspan="4">{{total}} € <small>(TTC)</small></td>
+                                <td><a href="{{ path('payment_checkout') }}" class="btn"><i class="fa-regular fa-credit-card"></i> Payer</a></td>
+                            
                         </tr>
                     </tfoot>
-                </tbody>
             </table> 
+        </div>
+            <div>
+                <a class="btn" href="{{ path('cart_all_delete') }}">Vider le panier</a>
             </div>
+            {% endif %}
         </section>
 
 {% endblock %}

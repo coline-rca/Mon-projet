@@ -6,43 +6,57 @@
 
 {% block header %}
         <div>
-            <h1>Nom du produit</h1>
-            <p>Catégorie</p>
+            <h1>{{ item.name }}</h1>
+            <p>{{ item.category.name }}</p>
         </div>
 {% endblock %}
 
 {% block body %}
 
-        <section class="product">
+    {% if is_granted('ROLE_ADMIN') %}
+        <section class="admin">
+            <div>
+                <a href="{{ path("admin_product_update", {id: item.id}) }}" class="btn" >Modifier</a>
+                <a href="{{ path("admin_product_delete", {id: item.id}) }}" class="btn btn-red" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')"/>Supprimer</a>
+            </div>
+        </section>
+    {% endif %}
 
+        <section class="product">
 
             <div class="images">
 
                 <div class="img-first">
-                    <img src="{{ asset("img/monstera-delisiosa.jpg")}}" alt="" class="img-p">
+                    <img src="{{ vich_uploader_asset(item, 'imageFile1') }}" alt="{{ item.name }}" class="img-p">
                 </div>
+
+                {% if item.imageName2 %}
 
                 <div class="img-second">
                     <div>
-                        <img src="{{ asset("img/monstera-delisiosa.jpg"  )}}" alt="" class="img">
+                        <img src="{{ vich_uploader_asset(item, 'imageFile1') }}" alt="{{ item.name }}" class="img">
                     </div>
 
                     <div>
-                        <img src="{{ asset("img/monstera-delisiosa-xl.jpg")}}" alt="" class="img">
+                        <img src="{{ vich_uploader_asset(item, 'imageFile2') }}" alt="{{ item.name }}" class="img">
                     </div>
-
+                {% if item.imageName3 %}
                     <div>
-                        <img src="{{ asset("img/monstera-delisiosa-s.jpg")}}" alt="" class="img">
+                        <img src="{{ vich_uploader_asset(item, 'imageFile3') }}" alt="{{ item.name }}" class="img">
                     </div>
+                {% endif %}
+
                 </div>
+
+                {% endif %}
 
             </div>
 
             <div class="content">
 
                 <div>
-                    <div>
-                        <h2>Nom du produit</h2>
+                    <div class="top">
+                        <h2>{{ item.name  }}</h2>
                         <i class="fa-regular fa-heart click"></i>
                     </div>
                     <div class="note">
@@ -50,27 +64,32 @@
                         <i class="fa-regular fa-star-half-stroke"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
-                    <span>15 €</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente saepe nisi maxime commodi necessitatibus repellat? Fugit ipsa vitae, dignissimos repellendus quos et maxime molestiae, odio voluptatum officiis, esse doloribus illum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus atque officia recusandae ipsam cupiditate sint dignissimos perspiciatis asperiores ut repellat? Ratione sunt molestiae, fugiat officia consequatur quaerat deleniti libero ea?</p>
+                    <span>{{ item.price }} €</span>
+                    <p>{{ item.description }}</p>
                 </div>
                 
+                {% if item.size %}
                 <div class="height">
 
                     <h3>Taille :</h3>
 
                     <div>
+                    {% if item.size.name == "small" %}
                         <div class="tooltip">
                             S
                             <span class="tooltiptext">5cm</span>
                         </div>
+                    {% elseif item.size.name == "medium" %}
                         <div class="tooltip">
                             M
                             <span class="tooltiptext">15cm</span>
                         </div>
+                    {% else %}
                         <div class="tooltip">
                             L
                             <span class="tooltiptext">20cm</span>
                         </div>
+                    {% endif %}
                     </div>
 
                 </div>
@@ -80,24 +99,34 @@
                     <h3>Taille :</h3>
 
                     <div>
+                    {% if item.size.name == "small" %}
                         <div>
                             S
                             <span>5cm</span>
                         </div>
+                    {% elseif item.size.name == "medium" %}
                         <div>
                             M
                             <span>10cm</span>
                         </div>
+                    {% else %}
                         <div>
                             L
                             <span>20cm</span>
                         </div>
+                    {% endif %}
                     </div>
 
                 </div>
 
+                {% endif %}
+
                 <div class="add">
-                    <a href="" class="btn" >Ajouter au panier</a>
+                    {% if item.stock > 0 %}
+                        <a href="{{ path("cart_add", {id: item.id})}}" class="btn" >Ajouter au panier</a>
+                    {% else %}
+                        <p class="btn-disabled" >Rupture de stock</p>
+                    {% endif %}
                 </div>
 
             </div>
