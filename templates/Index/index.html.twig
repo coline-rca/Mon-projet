@@ -6,6 +6,15 @@ Accueil
 
 {% block css %}<link rel="stylesheet" href="{{ asset("css/index.css") }}">{% endblock %}
 
+
+{% block header %}
+    <div>
+        <h1>MaPlante</h1>
+        <p>Pour une vie plus verte</p>
+    </div>
+{% endblock %}
+
+
 {% block body %}
 
 
@@ -82,6 +91,7 @@ Accueil
                     <ul>
                         <li><a href="mailto:"><i class="fa-solid fa-at"></i> mail@mail.com</a></li>
                         <li><a href="tel:+"><i class="fa-solid fa-phone"></i> téléphone</a> (Du lundi au vendredi de 8h à 17h)</li>
+                        <li class="form"><a href="{{ path('contact') }}" class="btn">Formulaire de contact</a></li>
                     </ul>
             </div>
 

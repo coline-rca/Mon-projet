@@ -6,16 +6,6 @@ Panier
 
 {% block css %}<link rel="stylesheet" href="{{ asset("css/cart.css") }}">{% endblock %}
 
-{% block header %}
-
-    <div>
-        <h1>Panier</h1>
-        {% if items is empty %}
-            <p>Aucun article dans votre panier</p>
-        {% endif %}
-    </div>
-
-{% endblock %}
 
 {% block body %}
 
@@ -23,6 +13,7 @@ Panier
 
         {% if items is empty %}
             <p>Votre panier est vide</p>
+            <a href="{{ path("index") }}" class="btn">Retour à l'accueil</a>
         {% else %}
 
         <div class="cart">                

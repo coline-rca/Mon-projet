@@ -52,24 +52,6 @@ class PaymentController extends AbstractController {
                 ];
         }
 
-        $order = new Order;
-        $order->setCreatedAt( new DateTimeImmutable("now"));
-        $order->setIsPaid(false);
-        $price = 0;
-
-        foreach ($cartData as $item) {
-            $price += $item['product']->getPrice()* $item['quantity'];
-        }
-
-        $order->setNumber(uniqid());
-        $order->setPrice($price);
-        $user = $this->getUser();
-        $order->setUser($user);
-
-        $entityManager = $doctrine->getManager();
-        $entityManager->persist($order);
-        $entityManager->flush();
-
 
 
         $session = Session::create([
@@ -77,24 +59,47 @@ class PaymentController extends AbstractController {
                 $line_items //On place le tableau construit juste au-dessus, pour les line_items.
             ],
             'mode' => 'payment',
-            'success_url' => $this->generateUrl('success_url', [ 'id' => $order->getId()], UrlGeneratorInterface::ABSOLUTE_URL),
+            'success_url' => $this->generateUrl('success_url', [], UrlGeneratorInterface::ABSOLUTE_URL),
             'cancel_url' => $this->generateUrl('cancel_url', [], UrlGeneratorInterface::ABSOLUTE_URL),
         ]);
 
         return $this->redirect($session->url, 303);
     }
 
-    #[Route('/payment/success/{id}', name:"success_url")]
-    public function success(SessionInterface $session, $id, ManagerRegistry $doctrine)
+    #[Route('/payment/success', name:"success_url")]
+    public function success(SessionInterface $session, ManagerRegistry $doctrine)
     {
-        $session->remove('cart');
 
-        $order = $doctrine->getRepository(Order::class)->find($id);
+        $cart = $session->get('cart', []);
+
+        $cartData = [];
+        foreach($cart as $id => $quantity)
+        {
+            $cartData[] = [
+                "product" => $doctrine->getRepository(Product::class)->find($id),
+                "quantity" => $quantity
+            ];
+        }
+
+        // Création de la commande dans la base de données
+        $order = new Order;
+        $order->setNumber(uniqid());
+        $order->setCreatedAt( new DateTimeImmutable("now"));
         $order->setIsPaid(true);
         $order->setPaidAt(new DateTimeImmutable("now"));
+        $user = $this->getUser();
+        $order->setUser($user);
+        $price = 0;
+        foreach ($cartData as $item) {
+            $price += $item['product']->getPrice()* $item['quantity'];
+        }
+        $order->setPrice($price);
+        
         $entityManager = $doctrine->getManager();
+        $entityManager->persist($order);
         $entityManager->flush();
 
+        $session->remove('cart');
         
         return $this->render("payment/success.html.twig");
     }

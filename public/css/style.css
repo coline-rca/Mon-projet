@@ -155,19 +155,9 @@ i[class~="fa-star"], i[class~="fa-star-half-stroke"]{
 }
 
 header {
-    background: linear-gradient( rgba(192,255,222,.8), rgba(192,255,222,.8)), url("../img/potted-plant.jpg");
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: lighten;
-    padding-bottom: 40vh;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    margin-top: 2rem;
+    margin-top: 6rem;
 }
 
-header p {
-    font-size: 1.5rem;
-}
 
 header nav {
     display: flex;

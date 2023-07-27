@@ -1,15 +1,16 @@
-@media screen and (min-width: 769px) {
+header {
+    background-image: none;
+    padding-bottom: 0;
+    margin-top: 6rem;
+    background-color: whitesmoke;
+}
 
-    header {
-        background-position: bottom;
-        padding-bottom: 100px;
-        padding-top: 150px;
-    }
-    
-    header div {
-        text-align: center;
-        padding-top: 0;
-    }
+header div {
+    padding-top: 0;
+}
+
+h1 {
+    font-size: 3rem;
 }
 
 textarea {
@@ -18,7 +19,7 @@ textarea {
 
 section.form {
     /* background-image: url("../img/fond.png"); */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),url("../img/fond.png");
+    background-image: url("../img/fond-form.png");
     /* background-blend-mode: luminosity; */
     background-repeat: no-repeat;
     background-size: cover;

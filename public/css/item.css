@@ -1,15 +1,9 @@
 @media screen and (min-width: 769px) {
 
     header {
-        background-position: bottom;
-        padding-bottom: 100px;
-        padding-top: 150px;
+        margin-top: 7rem;
     }
     
-    header div {
-        text-align: center;
-        padding-top: 0;
-    }
 }
 
 /* MAIN */
@@ -117,6 +111,7 @@ section.product .content {
     background-blend-mode: lighten;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 1rem;
 }
 
 section.product .content div .top {

@@ -1,26 +1,11 @@
-    header {
-        background-image: none;
-        padding-bottom: 0;
-        margin-top: 6rem;
-    }
+header {
+    background-image: none;
+    padding-bottom: 0;
+    margin-top: 6rem;
+}
 
-    header div {
-        padding-top: 0;
-    }
-
-
-@media screen and (min-width: 769px) {
-
-    header {
-        background-image: none;
-        padding-bottom: 0;
-        margin-top: 6rem;
-    }
-
-    header div {
-        padding-top: 0;
-    }
-
+header div {
+    padding-top: 0;
 }
 
 h1 {

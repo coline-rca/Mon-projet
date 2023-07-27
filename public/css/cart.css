@@ -1,20 +1,12 @@
-@media screen and (min-width: 769px) {
-
-    header {
-        background-position: bottom;
-        padding-bottom: 100px;
-        padding-top: 150px;
-    }
-    
-    header div {
-        text-align: center;
-        padding-top: 0;
-    }
-}
 
 .btn {
     padding: .6rem 1.5rem;
     font-size: 1.2rem;
+}
+
+section.cart {
+    padding-bottom: 20vh;
+    padding-top: 20vh;
 }
 
 section.cart i {
